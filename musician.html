@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musician html</title>
+</head>
+<body>
+    <h2>Musician guess by Mounika Annabathina</h2>
+    <h2>Getting input</h2>
+
+    <form>
+        <div class="form-group">
+            <label for="form1_name">Enter the secret musician name </label>
+            <input type ="password" class="form control" id="form1_name" name="form1_name" value ="John Lennon"> <br> 
+        </div>
+        <div class="form-group">
+            <label for="form1_text">Guess the musician</label>
+            <input type ="text" id="form1_text" name="form1_text" autofocus> <br>
+        </div>
+        <br>
+        <input type="button" class="btn btn-primary" onclick="checkGuess()" value="Check the guess">
+    </form>
+    
+    
+    <p id="result">This text will be replaced </p>
+    
+    <script> 
+    var correct=0;
+    var wrong=0;
+    function checkGuess(){
+        console.log("Getting form values")
+        value1_musicianname = document.getElementById("form1_name").value
+        value2_usertext = document.getElementById("form1_text").value
+        if(value1_musicianname == value2_usertext) {
+            window.alert("You got it right")
+            correct+=1
+        }
+        else {
+            window.alert("Wrong Musician")
+            wrong+=1
+        }
+        document.getElementById("result").innerHTML = "Correct count  is : " +correct + " <br>" + "Wrong count  is : " +wrong
+        
+    }
+    </script> 
+</body>
+</html>
+ 
