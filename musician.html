@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Musician html</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"   
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" 
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 </head>
 <body>
     <h2>Musician guess by Mounika Annabathina</h2>
@@ -20,7 +26,7 @@
             <input type ="text" id="form1_text" name="form1_text" autofocus> <br>
         </div>
         <br>
-        <input type="button" class="btn btn-primary" onclick="checkGuess()" value="Check the guess">
+        <input type="button" class="btn btn-primary" onclick="checkGuess();endoftheGame()" value="Check the guess" id="btn_x">
     </form>
     
     
@@ -44,6 +50,7 @@
             window.alert("Wrong Musician")
             wrong+=1
         }
+        if(wrong==3) document.getElementById("btn_x").onclick = endoftheGame;
         document.getElementById("result").innerHTML = "Correct count  is : " +correct + " <br>" + "Wrong count  is : " +wrong
         
     }
@@ -80,6 +87,7 @@
             {
                 if(wrong >=3) 
                 {
+                    
                     wrong -= 4
                     alert("Sorry,game over.")
                 }
@@ -90,6 +98,7 @@
 
                 }
             }
+            //alert("game is over");
         }
 
     </script>
