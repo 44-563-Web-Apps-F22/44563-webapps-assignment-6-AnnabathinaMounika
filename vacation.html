@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>
+        vacation Page
+    </title>
+ </head>
+<body>
+<h2> Mounika Annabathina selects a vacation </h2>
+<h2>Getting input</h2>
+<div class="container">
+    <form>
+        <input type="checkbox" id="v_air" name="timeforvacation1"   value="True">
+        <label for="v_air">Travel by Air</label></br>
+      
+        <input type="checkbox" id="v_domestic" name="timeforvacation2" value="True">
+        <label for="v_domestic">Domestic</label></br>
+      
+        <input type="checkbox" id="v_resort" name="timeforvacation3"   value="False">
+        <label for="v_resort">Resort</label></br>
+
+        <input type="button" class= "btn btn-warning"onclick="selectVacation()" value="Select a vacation">
+      </form>
+</div>
+</div>
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+var my_vacation={};
+function selectVacation (){
+    my_vacation={};
+    let air = document.getElementById("v_air").checked
+    let domestic = document.getElementById("v_domestic").checked
+    let resort = document.getElementById("v_resort").checked
+    if(air)
+    {
+        my_vacation.v_air=true;
+    }
+    else{
+        my_vacation.v_air=false;
+    }
+    if(domestic)
+    {
+        my_vacation.v_domestic=true;
+    }
+    else{
+        my_vacation.v_domestic=false;
+    }
+    if(resort)
+    {
+        my_vacation.v_resort=true;
+    }
+    else{
+        my_vacation.v_resort=false;
+    }
+    document.getElementById("result").innerHTML=JSON.stringify(my_vacation)
+}
+</script>
+<form>
+    <label for="city"> Enter a city</label>
+    <input type="text" id="city" name="cityname" value="city"> <br>
+    <label for="price"> Enter price</label>
+    <input type="text" id="price" name="vacationprice"> <br>
+    <input type="button" class="btn btn-success" value="Update the vacation" onclick="updateVacation()">
+    <p id="result1">choosing a vacation and updating it </p>
+</form>
+<script>
+    function updateVacation()
+    {
+        let city=document.getElementById("city").value;
+        let price=document.getElementById("price").value;
+        my_vacation["city"]=city;
+        my_vacation["price"]=price;
+        document.getElementById("result1").innerHTML=JSON.stringify(my_vacation)
+    }
+</script>
+</body>
+</html> 

@@ -25,8 +25,11 @@
     
     
     <p id="result">This text will be replaced </p>
-    
+    <div class="container">
+        <img src="Ant.jpg" id = "myinsects_image" alt="ant image" style="width: 100px;height: 100px;" onclick="swapImage()">
+    </div>
     <script> 
+    var useImage=1;
     var correct=0;
     var wrong=0;
     function checkGuess(){
@@ -44,7 +47,52 @@
         document.getElementById("result").innerHTML = "Correct count  is : " +correct + " <br>" + "Wrong count  is : " +wrong
         
     }
-    </script> 
+       
+    function swapImage() {
+        switch(useImage)
+            {
+                case 1: 
+                {
+                    document.getElementById("myinsects_image").src="Ant.jpg"
+                    useImage=2;
+                    break;
+                }
+                case 2:
+                    {
+                    document.getElementById("myinsects_image").src="bee.jpg"
+                    useImage=3;
+                    break;
+                    }
+                case 3:
+                    {
+                    document.getElementById("myinsects_image").src="tick.jpg"
+                    useImage=1;
+                    break;   
+                    }
+                
+            }
+        }
+    </script>
+    <script>
+        function endoftheGame()
+        {
+            while(wrong==3) 
+            {
+                if(wrong >=3) 
+                {
+                    wrong -= 4
+                    alert("Sorry,game over.")
+                }
+                else 
+                {
+                    alert("you got it right")
+                    document.getElementById("result").innerHTML="Correct count:" + correct + " " + "Wrong count:" + wrong 
+
+                }
+            }
+        }
+
+    </script>
 </body>
 </html>
  

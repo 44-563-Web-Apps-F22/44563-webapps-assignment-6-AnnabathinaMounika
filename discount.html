@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Discount calculation Page
+    </title>
+ </head>
+
+
+
+
+<body>
+<h2> Mounika Annabathina computes discounts</h2>
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_amount">Enter product base amount </label>
+    <input type ="number" id="form1_amount" name="form1_amount" min=10 max=50 step=2 value=20> <br>
+
+    <label for="form1_discount">Enter discount percentage applies </label>
+    <input type ="text" id="form1_discount" name="form1_discount" value=10 autofocus> <br>
+
+    <input type="button" onclick="discount()" value="Apply discount">
+</form>
+
+
+<p id="result1">This text will be replaced </p>
+
+<script> 
+
+function discount (){
+    let result=""
+    console.log("Getting form values")
+    base_amount = document.getElementById("form1_amount").value
+    discount_percent = document.getElementById("form1_discount").value
+    for(let i= 1;i<6;i++)
+    {
+        result=result+((i*base_amount)-(i*base_amount)*discount_percent/100)+" "
+    }
+    document.getElementById("result1").innerHTML="Discounted amount for base" +base_amount+ " are " +result
+}
+</script>
+<form>
+    <input type="radio" id="radio_mul" name="radio_cal"  onclick="chooseOp()" value="times"   checked >
+    <label for="radio_mul">*</label></br>
+  
+    <input type="radio" id="radio_div" name="radio_cal"  onclick="chooseOp()" value="divide">
+    <label for="radio_div">/</label></br>
+  
+    <input type="radio" id="radio_exp" name="radio_cal"   onclick="chooseOp()" value="exponent">
+    <label for="radio_exp">**</label></br>
+
+
+    <input type="button"  class="btn btn-success" onclick="chooseOp()" value="Get values from radio group">
+  </form>
+  <p id="result2">This text will be replaced </p>
+  <script>
+    function chooseOp()
+    {
+    base_amount = document.getElementById("form1_amount").value
+    discount_percent = document.getElementById("form1_discount").value
+    radiomul = document.getElementById("radio_mul").checked
+    radiodiv = document.getElementById("radio_div").checked
+    radioexp = document.getElementById("radio_exp").checked
+    final_result=document.getElementById("result2")
+    if(radiomul==true)
+    final_result.innerHTML=base_amount*discount_percent
+    if(radiodiv==true)
+    final_result.innerHTML=base_amount/discount_percent
+    if(radioexp==true)
+    final_result.innerHTML=base_amount**discount_percent
+    }
+  </script>
+</body>
+</html> 
